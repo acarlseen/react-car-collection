@@ -9,7 +9,7 @@ export default function Navbar() {
     }
 
     return (
-        <nav className="flex items-center justify-between flex-wrap bg-black p-6 fixed w-full">
+        <nav className="flex items-center justify-between flex-wrap bg-black p-6 fixed w-full shadow-lg">
             <div>
                 <Link to='/'>
                     <button className='text-white font-semibold hover:text-yellow-300'>
