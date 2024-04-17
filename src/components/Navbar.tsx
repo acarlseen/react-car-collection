@@ -9,7 +9,8 @@ export default function Navbar() {
     }
 
     return (
-        <nav className="flex items-center justify-between flex-wrap bg-black p-6 fixed w-full shadow-lg">
+        <>
+        <nav className="flex items-center justify-between flex-wrap bg-black p-6 fixed w-full shadow-lg z-10">
             <div>
                 <Link to='/'>
                     <button className='text-white font-semibold hover:text-yellow-300'>
@@ -56,5 +57,8 @@ export default function Navbar() {
             :
             <></>}
         </nav>
+        <div className="h-20">
+        </div>
+        </>
     );
 }

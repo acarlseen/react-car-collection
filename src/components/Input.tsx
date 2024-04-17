@@ -20,6 +20,7 @@ export const Input = forwardRef((props: InputType ,ref) => {
             inputRef={ref}
             fullWidth
             type='text'
+            id={props.name}
             {...props}
         >
 

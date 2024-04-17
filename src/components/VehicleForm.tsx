@@ -5,7 +5,7 @@ import { Input } from "./Input"
 import { useForm } from 'react-hook-form'
 //import { server_calls } from "../api/server"
 import { useDispatch, useStore } from 'react-redux'
-import { chooseName, chooseEmail, chooseAddress, choosePhone } from "../redux/slices/RootSlice"
+import { chooseVIN, chooseMake, chooseModel, chooseYear, chooseColor, chooseCarName } from "../redux/slices/RootSlice"
 
 // interfaces
 
@@ -29,10 +29,12 @@ export const VehicleForm = (props:VehicleFormProps) => {
     }
     else{
       // use dispatch to update our state in our store
-      dispatch(chooseName(data.name));
-      dispatch(chooseEmail(data.email));
-      dispatch(choosePhone(data.phone_number));
-      dispatch(chooseAddress(data.address))
+      dispatch(chooseVIN(data.vin));
+      dispatch(chooseMake(data.make));
+      dispatch(chooseModel(data.model));
+      dispatch(chooseYear(data.year));
+      dispatch(chooseColor(data.color));
+      dispatch(chooseCarName(data.car_name));
 
       server_calls.create(store.getState())
       setTimeout( () => {window.location.reload()}, 1000)
@@ -43,20 +45,28 @@ export const VehicleForm = (props:VehicleFormProps) => {
     <div>
       <form onSubmit={ handleSubmit(onSubmit) }>
         <div>
-          <label htmlFor="name">Contact Name</label>
-          <Input {...register('name')} name='name' placeholder="Name" />
+          <label htmlFor="vin">VIN</label>
+          <Input {...register('vin')} name='vin' placeholder="VIN" />
         </div>
         <div>
-          <label htmlFor="email">Email</label>
-          <Input {...register('email')} name='email' placeholder="Email" />
+          <label htmlFor="make">Make</label>
+          <Input {...register('make')} name='make' placeholder="Make" />
         </div>
         <div>
-          <label htmlFor="phone_number">Phone Number</label>
-          <Input {...register('phone_number')} name='phone_number' placeholder="phone_number" />
+          <label htmlFor="model">Model</label>
+          <Input {...register('model')} name='model' placeholder="Model" />
         </div>
         <div>
-          <label htmlFor="address">Address</label>
-          <Input {...register('address')} name='address' placeholder="Address" />
+          <label htmlFor="year">Year</label>
+          <Input {...register('year')} name='year' placeholder="Year" />
+        </div>
+        <div>
+          <label htmlFor="color">Color</label>
+          <Input {...register('color')} name='color' placeholder="Color" />
+        </div>
+        <div>
+          <label htmlFor="car_name">Car Name <span className="text-slate-300">(Optional)</span> </label>
+          <Input {...register('car_name')} name='car_name' placeholder="Car Name" />
         </div>
         <div className="flex p-1">
           <button className="flex justify-start m-3 bg-slate-300 p-2 rounded hover:bg-slate-800 text-white">
