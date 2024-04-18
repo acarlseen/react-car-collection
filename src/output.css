@@ -562,6 +562,14 @@ video {
   top: 2.5rem;
 }
 
+.top-0 {
+  top: 0px;
+}
+
+.left-0 {
+  left: 0px;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -650,12 +658,32 @@ video {
   height: max-content;
 }
 
+.h-4\/5 {
+  height: 80%;
+}
+
 .max-h-full {
   max-height: 100%;
 }
 
 .max-h-9 {
   max-height: 2.25rem;
+}
+
+.max-h-80 {
+  max-height: 20rem;
+}
+
+.max-h-px {
+  max-height: 1px;
+}
+
+.max-h-svh {
+  max-height: 100svh;
+}
+
+.max-h-96 {
+  max-height: 24rem;
 }
 
 .w-1\/2 {
@@ -740,6 +768,22 @@ video {
 
 .overflow-auto {
   overflow: auto;
+}
+
+.overflow-scroll {
+  overflow: scroll;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
+.overflow-y-scroll {
+  overflow-y: scroll;
+}
+
+.overscroll-auto {
+  overscroll-behavior: auto;
 }
 
 .rounded {
@@ -841,6 +885,10 @@ video {
 
 .bg-opacity-25 {
   --tw-bg-opacity: 0.25;
+}
+
+.bg-opacity-75 {
+  --tw-bg-opacity: 0.75;
 }
 
 .bg-\[url\(\{Background\}\)\] {

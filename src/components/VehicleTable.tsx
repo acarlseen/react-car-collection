@@ -6,7 +6,7 @@
 
 import { useState } from "react";
 import { useGetData } from "../custom-hooks/GetCars";
-import { server_calls } from "../api/server";
+
 
 // vin = request.json['vin']
 // make = request.json['make']
@@ -34,22 +34,6 @@ const columns : GridColDef[] = [
     const [ selectionModel, setSelectionModel ] = useState<string[]>([])
 
     
-    const handleClick = () => {
-        console.log(selectionModel)
-        alert('Are you sure you want to delete?')
-    }
-
-    const handleUpdate = () => {
-
-    }
-
-    const deleteData = () => {
-        for (let i=0; i<selectionModel.length; i++){
-            server_calls.delete(selectionModel[i])
-        }
-        getData();
-
-    }
 
     return (
         <>

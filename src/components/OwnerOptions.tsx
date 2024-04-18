@@ -1,5 +1,8 @@
+import { useState } from "react"
 import { server_calls } from "../api/server"
 import { useGetData } from "../custom-hooks/GetCars"
+import AddVehicleModal from "./AddVehicleModal"
+
 
 // Attempting to make this row of buttons a separate component
 
@@ -10,7 +13,11 @@ type Props = {
 
 const OwnerOptions = (props: Props) => {
     const {carData, getData} = useGetData()
+    const [openModal, setOpenModal] = useState(false)
 
+    const changeModalState = () => {
+        setOpenModal(!openModal)
+    }
 
     const handleClick = () => {
         console.log(props.selectionModel)
@@ -22,7 +29,7 @@ const OwnerOptions = (props: Props) => {
     }
 
     const deleteData = () => {
-        for (let i=0; i<props.selectionModel.length; i++){
+        for (let i=0; i < props.selectionModel.length; i++){
             server_calls.delete(props.selectionModel[i])
         }
         getData();
@@ -30,7 +37,8 @@ const OwnerOptions = (props: Props) => {
     }
     return(
         <div className="flex flex-row justify-center gap-5">
-                <button onClick={getData}
+            <AddVehicleModal open={openModal} onClose={changeModalState}/>
+                <button onClick={changeModalState}
                 className="my-5 bg-red-500 w-1/4 h-10 rounded-lg">
                     Add Vehicle
                 </button>

@@ -1,0 +1,5 @@
+{
+    "domain": "dev-srlwsnr657fk16zf.us.auth0.com",
+    "clientId": "{yourClientId}",
+    "audience": "{yourApiIdentifier}"
+  }

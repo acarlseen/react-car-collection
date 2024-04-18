@@ -1,11 +1,21 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export default function Navbar() {
     const [isExpanded, setIsExpanded] = useState(false)
+    const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
     const dropDown = () => {
         setIsExpanded(!isExpanded)
+    }
+
+    const signOutOnclick = () => {
+        logout();
+    }
+
+    const signInOnClick = () => {
+        loginWithRedirect();
     }
 
     return (
@@ -51,6 +61,18 @@ export default function Navbar() {
                             Alerts
                         </button>
                     </Link>
+                    {
+                        !isAuthenticated ?
+                            <Link to='/' onClick={signInOnClick}
+                            className='text-white hover:text-yellow-300'>
+                                Sign In                                    
+                            </Link>
+                        :
+                            <Link to='/' onClick={ signOutOnclick }
+                            className='text-white hover:text-yellow-300'>
+                                Sign Out
+                            </Link>
+                    }
                 </div>
             </div>
             )

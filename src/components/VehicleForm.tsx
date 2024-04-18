@@ -3,7 +3,7 @@
 import { Input } from "./Input"
 
 import { useForm } from 'react-hook-form'
-//import { server_calls } from "../api/server"
+import { server_calls } from "../api/server"
 import { useDispatch, useStore } from 'react-redux'
 import { chooseVIN, chooseMake, chooseModel, chooseYear, chooseColor, chooseCarName } from "../redux/slices/RootSlice"
 
@@ -36,8 +36,8 @@ export const VehicleForm = (props:VehicleFormProps) => {
       dispatch(chooseColor(data.color));
       dispatch(chooseCarName(data.car_name));
 
-      server_calls.create(store.getState())
-      setTimeout( () => {window.location.reload()}, 1000)
+      server_calls.create(store.getState(), '94481f33-8150-4c15-90f8-087f3bfe4c6e')
+      setTimeout( () => {window.location.reload()}, 10000)
     }
   }
 
@@ -69,7 +69,8 @@ export const VehicleForm = (props:VehicleFormProps) => {
           <Input {...register('car_name')} name='car_name' placeholder="Car Name" />
         </div>
         <div className="flex p-1">
-          <button className="flex justify-start m-3 bg-slate-300 p-2 rounded hover:bg-slate-800 text-white">
+          <button type="submit"
+          className="flex justify-start m-3 bg-slate-300 p-2 rounded hover:bg-slate-800 text-white">
             Submit
           </button>
         </div>
