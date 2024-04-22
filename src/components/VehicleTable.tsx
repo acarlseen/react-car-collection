@@ -5,7 +5,7 @@
 //   myCollection, friendsCollection, publicUserCollection
 
 import { useState } from "react";
-import { useGetData } from "../custom-hooks/GetCars";
+import { useGetGarage } from "../custom-hooks/GetGarage";
 
 
 // vin = request.json['vin']
@@ -21,7 +21,7 @@ import OwnerOptions from "./OwnerOptions";
 
 const columns : GridColDef[] = [
     { field: 'id', headerName: "ID", width: 90 },
-    {field: 'car_name', headerName: 'Car Name', flex: 1},
+    {field: 'car_name', headerName: 'Car Name', flex: 1.5},
     {field: 'make', headerName: 'Make', flex: 1},
     {field: 'model', headerName: 'Model', flex: 1},
     {field: 'year', headerName: 'Year', flex: 1},
@@ -30,15 +30,15 @@ const columns : GridColDef[] = [
 ]
 
  export const VehicleTable = () => {
-    const {carData, getData} = useGetData()
+    const {garageData} = useGetGarage()
     const [ selectionModel, setSelectionModel ] = useState<string[]>([])
 
-    
+    console.log(`garageData: ${JSON.stringify(garageData)}`)
 
     return (
         <>
             <div className="flex bg-black bg-opacity-30 text-white">
-                <DataGrid rows={carData} columns={columns}
+                <DataGrid rows={garageData} columns={columns}
                         checkboxSelection={true} 
                         columnVisibilityModel={{id: false,}}
                         onRowSelectionModelChange={ (item:any) => {

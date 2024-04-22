@@ -14,7 +14,7 @@ interface InputType{
 export const Input = forwardRef((props: InputType ,ref) => {
 
     return (
-        <TextField
+            <TextField
             variant = "outlined"
             margin="normal"
             inputRef={ref}
@@ -22,8 +22,8 @@ export const Input = forwardRef((props: InputType ,ref) => {
             type='text'
             id={props.name}
             {...props}
-        >
+            >
 
-        </TextField>
+            </TextField>
     )
 })

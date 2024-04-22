@@ -54,11 +54,11 @@ export default function Navbar() {
                             +Vehicle
                         </button>
                     </Link>
-                    <Link to='/alerts'
+                    <Link to='/about'
                         onClick={dropDown}
                         className='text-white hover:text-yellow-300'>
                         <button>
-                            Alerts
+                            About
                         </button>
                     </Link>
                     {

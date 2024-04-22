@@ -2,11 +2,11 @@ import { useEffect, useState } from "react"
 import { server_calls } from "../api/server";
 
 
-export const useGetData = () => {
-    const [carData, setData ] = useState([]);
+export const useGetGarage = () => {
+    const [garageData, setData ] = useState<[]>([]);
 
     async function handleDataFetch () {
-        const result = await server_calls.get();
+        const result = await server_calls.getGarage();
         setData(result);
     }
 
@@ -14,5 +14,5 @@ export const useGetData = () => {
         handleDataFetch();
     }, []);
 
-    return {carData, getData:handleDataFetch}
+    return {garageData: garageData, getData:handleDataFetch}
 }

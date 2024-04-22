@@ -2,13 +2,11 @@ import { VehicleForm } from "./VehicleForm";
 
 type Props = {
     id?: string[];
-    open: boolean;
+    carIDs: string[];
     onClose: () => void;
 }
 
-const AddVehicleModal = ( props: Props ) =>{
- 
-    if ( !props.open ) return (<></>);
+const VehicleModal = ( props: Props ) =>{
     return(
         <div onClick={ props.onClose }
             className="fixed top-10 left-0 w-full h-full flex overflow-auto z-1 
@@ -28,7 +26,7 @@ const AddVehicleModal = ( props: Props ) =>{
                         </div>
                     </div>
                     <div className="flex flex-col items-center text-center mt-3 p-2">
-                        <VehicleForm id={ props.id } />
+                        <VehicleForm id={ props.id } carIDs={ props.carIDs }/>
                     </div>
                 </div>
             </div>
@@ -37,4 +35,4 @@ const AddVehicleModal = ( props: Props ) =>{
 }
 
 
-export default AddVehicleModal
+export default VehicleModal

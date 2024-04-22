@@ -19,8 +19,8 @@ export default function Dashboard() {
                     {isAuthenticated && (
                     <div className="p-5  h-1/3 bg-white bg-opacity-80 m-5 rounded-xl">
                         <span className='font-bold'>Profile <br /></span>
-                        Name: { user.name } <br />
-                        Token: {user.email}
+                        Name: { user!.name } <br /> 
+                        Email: {user!.email} 
                     </div>)}
                     <div className="p-5 bg-white bg-opacity-80 m-5 rounded-xl">
                         <EventCalendar />

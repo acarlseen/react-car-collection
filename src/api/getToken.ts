@@ -15,6 +15,21 @@
 //     console.log(error);
 //   });
 
-export const Token = async () => {
-    const token = await fetch(,)
-}
+
+// This does not work, as written. Revisit later
+// import { auth0Config } from "../config/auth0.config";
+
+// const requestInfo = {
+//     method: 'POST',
+//     url: 'https://dev-srlwsnr657fk16zf.us.auth0.com/oauth/token',
+//     headers: {
+//         'content-type': 'application/x-www-form-urlencoded'
+//     },
+//     form: {
+//         grant_type: 'authorization_code',
+//         client_id: auth0Config.clientID,
+//         client_secret: auth0Config.secret,
+//         code: 'AUTHORIZATION_CODE',
+//         redirect_uri: 'undefined'
+//     }
+// };
