@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { server_calls } from "../api/server"
-import { useGetGarage } from "../custom-hooks/GetGarage"
 import VehicleModal from "./VehicleModal"
 
 
@@ -8,11 +7,10 @@ import VehicleModal from "./VehicleModal"
 
 type Props = {
     selectionModel : string[],
-
+    handleRefresh: () => void,
 }
 
 const OwnerOptions = (props: Props) => {
-    const { getData} = useGetGarage()
     const [openModal, setOpenModal] = useState(false)
 
     const changeModalState = () => {
@@ -23,14 +21,14 @@ const OwnerOptions = (props: Props) => {
         for (let i=0; i < props.selectionModel.length; i++){
             server_calls.delete('94481f33-8150-4c15-90f8-087f3bfe4c6e',props.selectionModel[i])
         }
-        getData();
+        props.handleRefresh();
         window.location.reload
 
     }
     return(
         <div className="flex flex-row justify-center gap-5">
             {openModal ? 
-                <VehicleModal onClose={changeModalState} carIDs={props.selectionModel} />
+                <VehicleModal onClose={changeModalState} carIDs={props.selectionModel} handleRefresh={props.handleRefresh}/>
             :
                 <></>
             }

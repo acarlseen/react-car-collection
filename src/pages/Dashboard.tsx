@@ -7,6 +7,7 @@ export default function Dashboard() {
     // TODO - add UUID and Token? Definitely pull profile info from DB
     const { user, isAuthenticated, isLoading } = useAuth0();
 
+
     if (isLoading){
         return <div>Loading...</div>
     }

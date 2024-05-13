@@ -12,7 +12,7 @@ export const useGetGarage = () => {
 
     useEffect( () => {
         handleDataFetch();
-    }, []);
+    }, [window.onload]);
 
     return {garageData: garageData, getData:handleDataFetch}
 }

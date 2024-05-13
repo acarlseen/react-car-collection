@@ -3,7 +3,8 @@ import { VehicleForm } from "./VehicleForm";
 type Props = {
     id?: string[];
     carIDs: string[];
-    onClose: () => void;
+    onClose: () => void,
+    handleRefresh: () => void,
 }
 
 const VehicleModal = ( props: Props ) =>{
@@ -26,7 +27,7 @@ const VehicleModal = ( props: Props ) =>{
                         </div>
                     </div>
                     <div className="flex flex-col items-center text-center mt-3 p-2">
-                        <VehicleForm id={ props.id } carIDs={ props.carIDs }/>
+                        <VehicleForm id={ props.id } carIDs={ props.carIDs } onClose={props.onClose} handleRefresh={props.handleRefresh}/>
                     </div>
                 </div>
             </div>

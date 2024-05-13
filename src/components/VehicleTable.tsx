@@ -4,7 +4,7 @@
 // Hopefully re-useable for multiple views like:
 //   myCollection, friendsCollection, publicUserCollection
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useGetGarage } from "../custom-hooks/GetGarage";
 
 
@@ -29,9 +29,21 @@ const columns : GridColDef[] = [
     {field: 'vin', headerName: 'VIN', flex: 1}
 ]
 
+
+
  export const VehicleTable = () => {
-    const {garageData} = useGetGarage()
-    const [ selectionModel, setSelectionModel ] = useState<string[]>([])
+    const {garageData, getData } = useGetGarage()
+    const [ selectionModel, setSelectionModel ] = useState<string[]>([]);
+    const [ tableRefresh, setTableRefresh ] = useState(false);
+
+    function handleRefresh() {
+        setTableRefresh(true);
+    }
+
+    useEffect( () => {
+        getData();
+        setTableRefresh(false);
+    }, [tableRefresh])
 
     console.log(`garageData: ${JSON.stringify(garageData)}`)
 
@@ -49,7 +61,7 @@ const columns : GridColDef[] = [
                         pageSizeOptions={[5, 10]}
                         className="bg-white bg-opacity-80"/>
             </div>
-            <OwnerOptions selectionModel={selectionModel}/>
+            <OwnerOptions selectionModel={selectionModel} handleRefresh = { handleRefresh } />
         </>
     )
  }

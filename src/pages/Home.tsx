@@ -16,7 +16,7 @@ export default function Home(){
                     { greeting }
                   </h2>
                 </div>
-                <div className='flex  justify-center font-semibold text-gray-200 pb-10'>
+                <div className='flex  justify-center font-semibold text-gray-200 bg-black bg-opacity-30 rounded p-3 pb-10'>
                   <h3><a href="https://car-collection-rdxv.onrender.com">API may spin-down, click here to re-initialize</a></h3>
                 </div>
               </div>

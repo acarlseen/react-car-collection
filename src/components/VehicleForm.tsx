@@ -11,7 +11,9 @@ import { chooseVIN, chooseMake, chooseModel, chooseYear, chooseColor, chooseCarN
 
 interface VehicleFormProps {
   id?: string[],
-  carIDs?: string[]
+  carIDs?: string[],
+  handleRefresh?: () => void,
+  onClose?: () => void,
 }
 
 export const VehicleForm = (props:VehicleFormProps) => {
@@ -37,7 +39,7 @@ export const VehicleForm = (props:VehicleFormProps) => {
       console.log(`CarID: ${props.carIDs[0]}`)
       server_calls.update(data, '94481f33-8150-4c15-90f8-087f3bfe4c6e', props.carIDs[0])
       console.log(`Updated: ${ data } ${ props.id }`);
-      setTimeout(() => {window.location.reload()}, 10000);
+      //setTimeout(() => {window.location.reload()}, 10000);
       event.target.reset();
     }
     else{
@@ -51,6 +53,12 @@ export const VehicleForm = (props:VehicleFormProps) => {
 
       server_calls.create(store.getState(), '94481f33-8150-4c15-90f8-087f3bfe4c6e')
       //setTimeout( () => {window.location.reload()}, 10000)
+    }
+    if (props.onClose){
+      props.onClose();
+    }
+    if (props.handleRefresh) {
+      props.handleRefresh();
     }
   }
 
